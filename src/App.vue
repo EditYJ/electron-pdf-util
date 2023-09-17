@@ -1,11 +1,11 @@
 <script setup lang="ts">
-import { Button, Textarea, message } from 'ant-design-vue'
+import { Button, Textarea } from 'ant-design-vue'
 import { useFileDialog } from '@vueuse/core'
 import { checkFile, getMemoryUrl } from './utils/file'
 import { jsPDF } from 'jspdf'
 import { getImageWH } from './utils/image'
 import { ref } from 'vue'
-import { MSG_KEY } from './utils/const'
+import { font } from '@/assets/Alibaba-normal'
 defineOptions({ name: 'app-page' })
 
 const { onChange, open, reset } = useFileDialog()
@@ -30,10 +30,12 @@ const resetText = () => {
 }
 
 const textToPdf = () => {
-  message.info({ content: '稍后支持，正在开发...', key: MSG_KEY })
-  // const doc = new jsPDF()
-  // doc.text(text.value, 0, 0)
-  // doc.save(`${text.value.substring(0, 6)}.pdf`)
+  const pdf = new jsPDF()
+  pdf.addFileToVFS('Alibaba-normal.ttf', font)
+  pdf.addFont('Alibaba-normal.ttf', 'Alibaba', 'normal')
+  pdf.setFont('Alibaba')
+  pdf.text(text.value, 5, 10)
+  pdf.save(`${text.value.substring(0, 6)}.pdf`)
 }
 </script>
 
