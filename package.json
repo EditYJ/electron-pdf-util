@@ -1,7 +1,7 @@
 {
-  "name": "epi-client-call-number",
+  "name": "electron-pdf-util",
   "private": true,
-  "version": "0.0.29",
+  "version": "0.0.1",
   "description": "PDF工具",
   "author": {
     "name": "EditYJ",
@@ -42,8 +42,8 @@
     "vue-tsc": "^1.8.11"
   },
   "build": {
-    "appId": "com.epi.callNumber",
-    "productName": "PDF工具",
+    "appId": "com.edityj.electronPdfUtil",
+    "productName": "PDF工具-茜茜专用版",
     "asar": true,
     "copyright": "Copyright © 2023 JQQ PDF UTIL",
     "directories": {

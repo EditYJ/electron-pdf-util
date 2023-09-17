@@ -56,6 +56,8 @@ const textToPdf = () => {
 <style lang="scss" scoped>
 .app-page {
   padding: 12px;
+  width: 100%;
+  height: 100%;
   .content {
     display: flex;
     flex-direction: column;

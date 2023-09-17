@@ -7,7 +7,7 @@ export function createBootstrapWindow(title = 'Main window') {
     title: title,
     fullscreen: false,
     frame: true,
-    height: 300,
+    height: 350,
     width: 350,
     icon: join(__dirname, '../dist/favicon.ico'),
     webPreferences: {
