@@ -1,0 +1,90 @@
+{
+  "name": "epi-client-call-number",
+  "private": true,
+  "version": "0.0.29",
+  "description": "PDF工具",
+  "author": {
+    "name": "EditYJ",
+    "email": "158392613@qq.com"
+  },
+  "main": "dist-electron/index.js",
+  "scripts": {
+    "dev": "vite",
+    "build": "pnpm run lint && rimraf dist && rimraf dist-electron  && vite build && electron-builder",
+    "lint": "eslint --ext .js,.jsx,.ts,.tsx,.vue ./ && vue-tsc",
+    "preview": "vite preview"
+  },
+  "dependencies": {
+    "@vueuse/core": "^10.4.1",
+    "ant-design-vue": "^4.0.3",
+    "dayjs": "^1.11.9",
+    "jspdf": "^2.5.1",
+    "lodash-es": "^4.17.21",
+    "qs": "^6.11.2",
+    "vue": "^3.3.4"
+  },
+  "devDependencies": {
+    "@types/lodash-es": "^4.17.9",
+    "@types/node": "^20.6.2",
+    "@types/qs": "^6.9.8",
+    "@vitejs/plugin-vue": "^4.3.4",
+    "@vue/eslint-config-typescript": "^12.0.0",
+    "electron": "26.2.1",
+    "electron-builder": "^24.6.4",
+    "electron-devtools-installer": "^3.2.0",
+    "eslint": "^8.49.0",
+    "sass": "^1.67.0",
+    "typescript": "^5.2.2",
+    "vite": "^4.4.9",
+    "vite-plugin-electron": "^0.14.1",
+    "vite-plugin-eslint": "^1.8.1",
+    "vue-tsc": "^1.8.11"
+  },
+  "build": {
+    "appId": "com.epi.callNumber",
+    "productName": "PDF工具",
+    "asar": true,
+    "copyright": "Copyright © 2023 JQQ PDF UTIL",
+    "directories": {
+      "output": "release/${version}"
+    },
+    "files": [
+      "dist",
+      "dist-electron"
+    ],
+    "mac": {
+      "artifactName": "${productName}_${version}.${ext}",
+      "icon": "public/favicon.ico",
+      "target": [
+        "dmg"
+      ]
+    },
+    "win": {
+      "artifactName": "${productName}_${version}.${ext}",
+      "icon": "public/favicon.ico",
+      "target": [
+        {
+          "target": "nsis",
+          "arch": [
+            "x64"
+          ]
+        }
+      ]
+    },
+    "nsis": {
+      "oneClick": false,
+      "perMachine": false,
+      "allowToChangeInstallationDirectory": true,
+      "deleteAppDataOnUninstall": false
+    },
+    "publish": [
+      {
+        "provider": "generic",
+        "url": "http://127.0.0.1:8080"
+      }
+    ],
+    "releaseInfo": {
+      "releaseNotes": "版本更新的具体内容"
+    }
+  }
+}
